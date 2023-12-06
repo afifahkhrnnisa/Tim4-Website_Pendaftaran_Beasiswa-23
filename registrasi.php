@@ -13,13 +13,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Isi dengan lengkap!";
     } 
     else {
-        $sqli = "INSERT INTO user (nik, email, password) VALUES ('$nik', '$email', '$password')";
-       
-        if(mysqli_query($koneksi, $sqli)) {
-            header("Location: login.html");
+        $periksa = "SELECT * FROM user WHERE nik='$nik'";
+        $result = mysqli_query($koneksi, $periksa);
+        if (mysqli_num_rows($result) > 0) {
+            echo "NIK sudah terdaftar. Silahkan gunakan NIK lain.";
         } 
         else {
-            echo "Error: " . $sqli ."". mysqli_error($koneksi);
+            $sqli = "INSERT INTO user (nik, email, password) VALUES ('$nik', '$email', '$password')";
+            if(mysqli_query($koneksi, $sqli)) {
+                header("Location: login.html");
+            } 
+            else {
+                echo "Error: " . $sqli . " " . mysqli_error($koneksi);
+            }
         }
     }
 }
