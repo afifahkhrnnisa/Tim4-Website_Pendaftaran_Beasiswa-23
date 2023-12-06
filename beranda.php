@@ -1,3 +1,14 @@
+<?php
+include "koneksi.php";
+session_start();
+
+if(isset($_SESSION["login"])){
+  header("Location: dashboard.php");
+  exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +57,7 @@
             Raih masa depan yang cerah bersama beasiswa favorit untuk <br>
             menjadi insan yang cerdas dan berakhlak mulia
           </p>
-          <p><a class="btn btn-light btn-lg text-primary" href="login.html" role="button">Login/Registrasi &raquo;</a></p>
+          <p><a class="btn btn-light btn-lg text-primary" href="login.php" role="button">Login/Registrasi &raquo;</a></p>
         </div>
       </div>
 
