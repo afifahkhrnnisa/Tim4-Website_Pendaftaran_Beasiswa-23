@@ -8,8 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nik = $_POST["nik"];
     $email = $_POST["email"];
     $password = $_POST["password"] ;
-
-    $sqli = "INSERT INTO user (nik, email, password) VALUES ('$nik', '$email', '$password')";
    
     if (empty($nik) || empty($email) || empty($password)) {
         echo "Isi dengan lengkap!";
