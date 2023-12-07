@@ -50,7 +50,7 @@ if (isset($_POST["regis"])) {
     <form action="registrasi.php" method="post">
         <header>Silahkan Registrasi Terlebih Dahulu</header>
         <br>
-        <input type="text" placeholder="Nomor Induk Kependudukan" name="nik"> 
+        <input type="number" placeholder="Nomor Induk Kependudukan" name="nik"> 
         <br>
         <input type="text" placeholder="Alamat Email" name="email">
         <br>
