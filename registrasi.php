@@ -3,6 +3,10 @@ include "koneksi.php";
 if (!$koneksi) { 
     die("Koneksi gagal: " . mysqli_connect_error());
 }
+if(isset($_SESSION["login"])){
+    header("Location: dashboard.php");
+    exit;
+}
 
 if (isset($_POST["regis"])) {
     $nik = $_POST["nik"];
@@ -13,23 +17,24 @@ if (isset($_POST["regis"])) {
         echo "<script>alert('Isi dengan lengkap!'); </script>";
     } 
     else {
-        $periksa = "SELECT * FROM user WHERE nik='$nik'";
+        $periksa = "SELECT * FROM user WHERE nik='$nik' OR email = '$email'";
         $result = mysqli_query($koneksi, $periksa);
         if (mysqli_num_rows($result) > 0) {
-            echo "<script>alert('NIK sudah terdaftar. Silahkan gunakan NIK lain.'); </script>";
+            echo "<script>alert('NIK atau email sudah terdaftar. Silahkan gunakan yang lain.'); </script>";
         } 
         else {
-            $sqli = "INSERT INTO user (nik, email, password) VALUES ('$nik', '$email', '$password')";
-            
-            if(mysqli_query($koneksi, $sqli)) {
-                header("Location: login.php");
-            } 
-            else {
-                echo "Error: " . $sqli . " " . mysqli_error($koneksi);
+                $sqli = "INSERT INTO user (nik, email, password) VALUES ('$nik', '$email', '$password')";
+                
+                if(mysqli_query($koneksi, $sqli)) {
+                    $_SESSION['daftar'] = true;
+                    header("Location: login.php");
+                } 
+                else {
+                    echo "Error: " . $sqli . " " . mysqli_error($koneksi);
+                }
             }
         }
     }
-}
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +50,7 @@ if (isset($_POST["regis"])) {
     <form action="registrasi.php" method="post">
         <header>Silahkan Registrasi Terlebih Dahulu</header>
         <br>
-        <input type="text" placeholder="Nomor Induk Kependudukan" name="nik"> 
+        <input type="number" placeholder="Nomor Induk Kependudukan" name="nik"> 
         <br>
         <input type="text" placeholder="Alamat Email" name="email">
         <br>
