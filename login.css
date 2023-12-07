@@ -17,7 +17,7 @@ a {
     text-align: right;
   }
   #card {
-    background: #fbfbfb;
+    background: white;
     border-radius: 8px;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
     height: 410px;
@@ -31,14 +31,13 @@ a {
     font-family: sans-serif;
     padding-bottom: 10px;
     padding-top: 13px;
-  
   }
   #selamat-datang {
    font-family: sans-serif;
    font-size: 20px;
    text-align: center;
    color: white;
-    padding-top: 13px;
+   padding-top: 13px;
   }
   #signup {
     color: #0C87F2;
@@ -53,9 +52,9 @@ a {
     cursor: pointer;
     color: white;
     font-family: sans-serif;
-    height: 42.3px;
-    margin-top: 0px;
-    width: 180px;
+    height: 30px;
+    margin-top: -20px;
+    width: 200px;
   }
   .form {
     align-items: left;
