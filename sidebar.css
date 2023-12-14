@@ -1,0 +1,51 @@
+body {
+    font-family: 'poppins', sans-serif;
+  }
+
+  #sidebar {
+    height: 100vh;
+    background-color: #2B2A4C;
+    color: #ffff;
+    position: fixed;
+  }
+
+  #sidebar ul a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 55px;
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    padding-left: 5px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+  }
+
+  #sidebar ul a i{
+    margin-right: 8px;
+  }
+
+  #sidebar .logout{
+    position: absolute;
+    left: 23%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    color: white;
+  }
+
+  .logout i{
+    padding: 0 6px;
+    color: white;
+  }
+
+  .logout a{
+    color: white;
+    text-decoration: none;
+  }
+
+
+  #content {
+    margin-left: 200px;
+    padding: 20px;
+  }
